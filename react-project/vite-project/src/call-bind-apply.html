@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  var city = "XYZ";
+  const profile = {
+    name: "pragati",
+    city: "satna",
+    getName: function () {
+      return this.city;
+    },
+    getCity(a, b) {
+      console.log("getCity This: ", this, a, b);
+      return this.city;
+    },
+    getUserDetails: () => {
+      // in arrow function it points to the global variable
+      return this.city;
+    },
+  };
+  // profile.getCity();
+  // console.log(profile.getCity());
+
+  // console.log("1: ", profile.getUserDetails());
+
+  // const getCty = profile.getCity.bind(
+  //   { name: "Superman", city: "NYC" },
+  //   10,
+  //   20
+  // );
+  // getCty();
+
+  // console.log("2: ", getCty());
+
+  console.log(profile.getCity.call({ city: "Delhi" }, 1, 2));
+
+  console.log(profile.getCity.apply({ city: "Pune" }, [1, 2]));
+</script>
